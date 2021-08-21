@@ -10,7 +10,6 @@ import {
 
 import colors from "../config/colors";
 import AppButton from "../components/AppButton";
-import RegisterButton from "../components/RegisterButton";
 
 export default function WelcomeScreen(props) {
   return (

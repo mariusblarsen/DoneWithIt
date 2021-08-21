@@ -4,26 +4,27 @@ import colors from "../../config/colors";
 export default StyleSheet.create({
   card: {
     flex: 0.4,
-    backgroundColor: "white",
-    borderRadius: 30,
+    backgroundColor: colors.white,
+    borderRadius: 15,
+    marginBottom: 20,
+    overflow: "hidden",
   },
   title: {
     fontSize: 20,
+    marginBottom: 7,
   },
   subTitle: {
     color: colors.secondary,
+    fontWeight: "bold",
     fontSize: 18,
     marginTop: 10,
   },
   image: {
-    // flex: 0.8,
     width: "100%",
-    height: "65%",
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
+    height: 200,
   },
   infoContainer: {
-    padding: 15,
+    padding: 20,
     justifyContent: "space-between",
   },
 });
