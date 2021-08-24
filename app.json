@@ -28,6 +28,7 @@
     "web": {
       "favicon": "./app/assets/favicon.png"
     },
-    "description": "By following https://youtu.be/0-S5a0eXPoc"
+    "description": "By following https://youtu.be/0-S5a0eXPoc",
+    "githubUrl": "https://github.com/mariusblarsen/DoneWithIt"
   }
 }
