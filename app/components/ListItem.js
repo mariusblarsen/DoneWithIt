@@ -1,11 +1,13 @@
 import React from "react";
 import { StyleSheet, View, Image, TouchableHighlight } from "react-native";
-import colors from "../config/colors";
+import defaultStyles from "../config/styles";
 import { Swipeable } from "react-native-gesture-handler";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import AppText from "./AppText";
 
 export default function ListItem({
+  chevronRight,
   image,
   IconComponent,
   title,
@@ -16,14 +18,30 @@ export default function ListItem({
 }) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
-      <TouchableHighlight underlayColor={colors.lightGray} onPress={onPress}>
+      <TouchableHighlight
+        underlayColor={defaultStyles.colors.lightGray}
+        onPress={onPress}
+      >
         <View style={[styles.container, style]}>
           {IconComponent}
           {image && <Image style={styles.image} source={image} />}
           <View style={styles.detailsContainer}>
-            <AppText style={styles.title}>{title}</AppText>
-            {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
+            <AppText style={styles.title} numberOfLines={1}>
+              {title}
+            </AppText>
+            {subTitle && (
+              <AppText style={styles.subTitle} numberOfLines={2}>
+                {subTitle}
+              </AppText>
+            )}
           </View>
+          {chevronRight && (
+            <MaterialCommunityIcons
+              name="chevron-right"
+              size={25}
+              color={defaultStyles.colors.mediumGray}
+            />
+          )}
         </View>
       </TouchableHighlight>
     </Swipeable>
@@ -33,11 +51,13 @@ export default function ListItem({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    backgroundColor: colors.white,
+    backgroundColor: defaultStyles.colors.white,
+    alignItems: "center",
   },
   detailsContainer: {
     marginLeft: 10,
     justifyContent: "center",
+    flex: 1,
   },
   image: {
     width: 70,
@@ -45,7 +65,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   subTitle: {
-    color: colors.mediumGray,
+    color: defaultStyles.colors.mediumGray,
     fontSize: 16,
     marginVertical: 5,
   },

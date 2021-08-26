@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Image, View } from "react-native";
 import AppText from "../AppText";
 import styles from "./style";
 
@@ -8,8 +8,12 @@ export default function Card({ title, subTitle, image }) {
     <View style={styles.card}>
       <Image style={styles.image} source={image} />
       <View style={styles.infoContainer}>
-        <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subTitle}>{subTitle}</AppText>
+        <AppText style={styles.title} numberOfLines={1}>
+          {title}
+        </AppText>
+        <AppText style={styles.subTitle} numberOfLines={2}>
+          {subTitle}
+        </AppText>
       </View>
     </View>
   );
